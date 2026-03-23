@@ -1,0 +1,280 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700&family=JetBrains+Mono:wght@400;500&family=Anton&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Outfit", sans-serif;
+  --font-anton: "Anton", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand-primary: #0F172A;
+  --color-brand-accent: #3B82F6;
+  --color-brand-secondary: #64748B;
+
+  --animation-aurora: aurora 60s linear infinite;
+  @keyframes aurora {
+    from {
+      background-position: 50% 50%, 50% 50%;
+    }
+    to {
+      background-position: 350% 50%, 350% 50%;
+    }
+  }
+}
+
+@layer base {
+  :root {
+    --white: #ffffff;
+    --black: #000000;
+    --transparent: transparent;
+    --blue-500: var(--color-blue-500);
+    --indigo-300: var(--color-indigo-300);
+    --blue-300: var(--color-blue-300);
+    --violet-200: var(--color-violet-200);
+    --blue-400: var(--color-blue-400);
+  }
+
+  body {
+    @apply font-sans bg-slate-50 text-slate-900;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+.color-flow-text {
+  background: linear-gradient(
+    to right,
+    #0F172A 0%,
+    #3B82F6 25%,
+    #8B5CF6 50%,
+    #3B82F6 75%,
+    #0F172A 100%
+  );
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: colorFlow 5s linear infinite;
+}
+
+@keyframes colorFlow {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+.premium-card-anim {
+  position: relative;
+  overflow: hidden;
+}
+
+.premium-card-anim::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(
+    transparent,
+    rgba(59, 130, 246, 0.1),
+    transparent 30%
+  );
+  animation: rotateGlow 6s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes rotateGlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.shimmer-surface {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-surface::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: translateX(-100%);
+  animation: shimmer 3s infinite;
+  pointer-events: none;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.glass-card {
+  @apply bg-white/80 backdrop-blur-md border border-white/20 shadow-sm;
+}
+
+.section-padding {
+  @apply py-20 px-6 md:px-12 lg:px-24;
+}
+
+/* ── Diamond / Crystal Premium Cards ── */
+.diamond-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  clip-path: polygon(
+    0px 12px, 12px 0px,
+    calc(100% - 12px) 0px, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0px calc(100% - 12px)
+  );
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.diamond-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.45) 0%,
+    rgba(255,255,255,0.05) 40%,
+    rgba(255,255,255,0) 60%,
+    rgba(255,255,255,0.15) 100%
+  );
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* Spinning prismatic edge highlight */
+.diamond-card::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(
+    from 0deg,
+    rgba(255,255,255,0) 0deg,
+    rgba(255,255,255,0.8) 60deg,
+    rgba(255,255,255,0) 120deg,
+    rgba(255,255,255,0) 180deg,
+    rgba(255,255,255,0.5) 240deg,
+    rgba(255,255,255,0) 300deg,
+    rgba(255,255,255,0) 360deg
+  );
+  animation: prismSpin 4s linear infinite;
+  z-index: 1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+@keyframes prismSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Shimmer sweep on the diamond card */
+.diamond-card .diamond-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    105deg,
+    transparent 30%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 70%
+  );
+  transform: translateX(-120%);
+  animation: diamondShimmer 2.8s ease-in-out infinite;
+  z-index: 3;
+  pointer-events: none;
+}
+
+@keyframes diamondShimmer {
+  0%   { transform: translateX(-120%); }
+  60%  { transform: translateX(120%); }
+  100% { transform: translateX(120%); }
+}
+
+/* Facet lines — top-left corner glint */
+.diamond-card .facet-line {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(
+    135deg,
+    rgba(255,255,255,0.5) 0%,
+    transparent 60%
+  );
+  z-index: 4;
+  pointer-events: none;
+  border-radius: 0 0 100% 0;
+  opacity: 0.4;
+}
+
+/* Bottom-right deep shadow facet */
+.diamond-card .facet-shadow {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background: linear-gradient(
+    315deg,
+    rgba(0,0,0,0.25) 0%,
+    transparent 60%
+  );
+  z-index: 4;
+  pointer-events: none;
+  border-radius: 100% 0 0 0;
+}
+
+/* Outer glow ring on hover */
+.diamond-card-wrap {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+.diamond-card-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: conic-gradient(
+    from 180deg,
+    rgba(255,255,255,0.0),
+    rgba(255,255,255,0.6),
+    rgba(255,255,255,0.0)
+  );
+  clip-path: polygon(
+    0px 12px, 12px 0px,
+    calc(100% - 12px) 0px, 100% 12px,
+    100% calc(100% - 12px), calc(100% - 12px) 100%,
+    12px 100%, 0px calc(100% - 12px)
+  );
+  animation: ringRotate 3s linear infinite;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.diamond-card-wrap:hover::before {
+  opacity: 1;
+}
+
+@keyframes ringRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes whyShimmer {
+  0%   { transform: translateX(-120%); }
+  100% { transform: translateX(120%); }
+}
