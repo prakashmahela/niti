@@ -143,7 +143,7 @@ const Hero = ({ onViewChange }: { onViewChange: (view: 'computer' | 'academy') =
             transition={{ duration: 0.6 }}
             className="text-center md:text-left flex flex-col items-center md:items-start"
           >
-            <h1 className="text-5xl md:text-7xl font-anton uppercase leading-[1.1] mb-6 color-flow-text">
+            <h1 className="text-5xl md:text-7xl font-anton uppercase tracking-wider leading-[1.1] mb-6 color-flow-text">
               26 years of quality education
             </h1>
             <p className="text-lg text-slate-600 mb-8 max-w-lg leading-relaxed mx-auto md:mx-0">
@@ -463,7 +463,7 @@ const ComputerSection = ({ onSelectCourse }: { onSelectCourse: (course: any) => 
     <section id="computer" className="py-24 bg-white text-slate-900 overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-anton uppercase mb-4 color-flow-text">Computer Centre</h2>
+          <h2 className="text-5xl md:text-6xl font-anton uppercase tracking-wider mb-4 color-flow-text">Computer Centre</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
             Equipping you with industry-standard digital skills to thrive in the modern workforce. Click on any course to view details.
           </p>
@@ -608,7 +608,7 @@ const AcademySection = ({ onViewBatchSchedule }: { onViewBatchSchedule: () => vo
           <div className="inline-block px-3 py-1 rounded-full bg-red-50 text-red-600 text-xs font-bold uppercase tracking-wider mb-6">
             Competitive Excellence
           </div>
-          <h2 className="text-4xl md:text-5xl font-anton uppercase mb-6 color-flow-text">NEET & JEE Academy</h2>
+          <h2 className="text-4xl md:text-5xl font-anton uppercase tracking-wider mb-6 color-flow-text">NEET & JEE Academy</h2>
           <p className="text-slate-600 mb-8 leading-relaxed">
             Our academy is dedicated to nurturing the next generation of doctors and engineers. We provide a rigorous yet supportive environment to help students crack the toughest competitive exams.
           </p>
@@ -1008,7 +1008,7 @@ const ScrollGallery = () => {
   return (
     <section className="py-12 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 md:px-12 mb-8 text-center">
-        <h2 className="text-3xl md:text-4xl font-anton uppercase mb-2 color-flow-text">Life at NITI</h2>
+        <h2 className="text-3xl md:text-4xl font-anton uppercase tracking-wider mb-2 color-flow-text">Life at NITI</h2>
         <p className="text-slate-600 text-sm max-w-2xl mx-auto">
           Glimpses of our vibrant campus, modern labs, and successful student events.
         </p>
@@ -1247,7 +1247,7 @@ const WhyChooseUs = ({ onSelectReason }: { onSelectReason: (reason: any) => void
     <section id="about" className="py-16 bg-white border-t border-slate-100">
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="text-center mb-10">
-          <h2 className="text-4xl md:text-5xl font-anton uppercase mb-4 color-flow-text">Why Choose NITI?</h2>
+          <h2 className="text-4xl md:text-5xl font-anton uppercase tracking-wider mb-4 color-flow-text">Why Choose NITI?</h2>
           <p className="text-slate-600 max-w-2xl mx-auto">
             We combine traditional teaching excellence with modern technology to provide a holistic learning experience.
           </p>
