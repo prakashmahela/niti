@@ -648,7 +648,7 @@ const TestimonialsSection = () => {
       src: "https://i.ibb.co/Fq5XswtK/Whats-App-Image-2025-11-23-at-10-16-24-AM.jpg"
     },
     {
-      quote: "Academic rigor combined with practical training is our secret to success. We are committed to nurturing the next generation of leaders.",
+      quote: "As Academic Director and Physics Faculty at NITI NEET-JEE Academy, Dimapur, my vision is to build strong fundamentals and conceptual clarity in every student. Through disciplined, concept-based learning, we aim to develop not just rank holders, but confident, future-ready individuals.",
       name: "Jaydeep Kumar",
       designation: "Academic Director",
       src: "https://i.ibb.co/7xLWTHQw/jaydeep.png"
