@@ -1,9 +1,10 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { BookOpen, Monitor, Award, Users, ArrowRight, Phone, Mail, MapPin, CheckCircle2, GraduationCap, Code, Cpu, ArrowLeft, Brain, TrendingUp, PenTool, Layers, Globe, Database, Menu, X, ChevronLeft, ChevronRight } from 'lucide-react';
+import { BookOpen, Monitor, Award, Users, ArrowRight, Phone, Mail, MapPin, CheckCircle2, GraduationCap, Code, Cpu, ArrowLeft, Brain, TrendingUp, PenTool, Layers, Globe, Database, Menu, X, ChevronLeft, ChevronRight, Smartphone, Lightbulb, Rocket, Zap, Shield, Star, Building2, FlaskConical, Network, HeartHandshake, ExternalLink } from 'lucide-react';
 import { useState, useEffect, useCallback, useRef } from 'react';
 import { CircularTestimonials } from './components/ui/circular-testimonials';
 import { MeshBackground } from './components/ui/mesh-background';
 import { Pricing, type PricingPlan } from "./components/ui/pricing";
+import { cn } from "./lib/utils";
 
 // --- Components ---
 
@@ -23,6 +24,8 @@ const Navbar = () => {
     { name: 'Home', href: '#home' },
     { name: 'Computer Centre', href: '#computer' },
     { name: 'NEET-JEE Academy', href: '#academy' },
+    { name: 'NITI Technologies', href: '#technologies' },
+    { name: 'Incubation Centre', href: '#incubation' },
     { name: 'About', href: '#about' },
   ];
 
@@ -1068,7 +1071,7 @@ const WhyChooseUsSubpage = ({ reason, onBack }: { reason: any, onBack: () => voi
       <div className="max-w-3xl mx-auto">
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors mb-8 font-medium text-sm"
+          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-200 transition-all mb-8 font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
@@ -1449,7 +1452,7 @@ const ComputerCoursesSubpage = ({ onBack }: { onBack: () => void }) => {
       <div className="max-w-7xl mx-auto">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors mb-8 font-medium"
+          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-200 transition-all mb-8 font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
@@ -1521,7 +1524,7 @@ const NeetJeeSubpage = ({ onBack }: { onBack: () => void }) => {
       <div className="max-w-7xl mx-auto">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors mb-8 font-medium"
+          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-200 transition-all mb-8 font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
@@ -1738,7 +1741,7 @@ const BatchSchedulePage = ({ onBack }: { onBack: () => void }) => {
         {/* Back Button */}
         <button
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 transition-colors mb-8 font-medium"
+          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-200 transition-all mb-8 font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Home
         </button>
@@ -1902,7 +1905,7 @@ const CourseDetailSubpage = ({ course, onBack }: { course: any, onBack: () => vo
       <div className="max-w-4xl mx-auto">
         <button 
           onClick={onBack}
-          className="flex items-center gap-2 text-slate-500 hover:text-blue-600 transition-colors mb-10 text-sm font-semibold uppercase tracking-wider"
+          className="flex items-center gap-2 text-slate-600 hover:text-blue-600 bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-200 transition-all mb-10 font-semibold text-sm px-4 py-2.5 rounded-xl shadow-sm"
         >
           <ArrowLeft className="w-4 h-4" /> Back to Courses
         </button>
@@ -1968,22 +1971,940 @@ const CourseDetailSubpage = ({ course, onBack }: { course: any, onBack: () => vo
   );
 };
 
+// ─── NITI Technologies Section ─────────────────────────────────────────────
+const NitiTechnologiesSection = ({ onSelectApp }: { onSelectApp: (app: any) => void }) => {
+  const apps = [
+    {
+      name: "Hornbill Festival",
+      category: "Tourism & Culture",
+      description: "Official app for Nagaland's iconic Festival of Festivals. Book homestays, hire cabs, explore destinations, find eateries, and get festival schedules — all in one place.",
+      color: "bg-[#0A0F1E]",
+      accent: "gold-accent",
+      glow: "shadow-orange-500/20",
+      icon: "🦜",
+      badge: "Official Govt App",
+      tags: ["Tourism", "Culture", "Nagaland"],
+      downloads: "10K+",
+      details: {
+        features: ["Real-time event schedules", "Interactive festival map", "Homestay & Cab booking", "Local eatery guide"],
+        impact: "Digitized Nagaland's biggest tourism event, improving visitor experience and local business visibility.",
+        techStack: ["React Native", "Firebase", "Google Maps API"],
+        status: "Active & Updated Yearly"
+      }
+    },
+    {
+      name: "NBSE Connect",
+      category: "Education Management",
+      description: "Connects schools, teachers, and the Nagaland Board of School Education. Features AI face recognition attendance, geo-tagged question paper tracking, and circular distribution.",
+      color: "bg-[#0A0F1E]",
+      accent: "silver-accent",
+      glow: "shadow-blue-500/20",
+      icon: "🎓",
+      badge: "NBSE Official",
+      tags: ["Education", "AI", "Government"],
+      downloads: "5K+",
+      details: {
+        features: ["AI Face Recognition Attendance", "Geo-tagged Question Paper Tracking", "Digital Circular Distribution", "School Performance Analytics"],
+        impact: "Streamlined administrative communication between NBSE and hundreds of schools across the state.",
+        techStack: ["React Native", "Python (AI)", "Node.js", "PostgreSQL"],
+        status: "Live & Operational"
+      }
+    },
+    {
+      name: "Samagra Shiksha",
+      category: "School Management",
+      description: "Digitizes school management for Nagaland's Department of School Education. Handles teacher profiling, circulars, school activities, and inclusive education journaling.",
+      color: "bg-orange-500 shadow-xl shadow-orange-500/20",
+      accent: "text-white/90",
+      glow: "shadow-emerald-500/20",
+      icon: "📚",
+      badge: "Dept. of Education",
+      tags: ["SchoolEd", "Digital India", "Govt"],
+      downloads: "1K+",
+      details: {
+        features: ["Teacher Profile Management", "School Activity Logging", "Inclusive Education Journaling", "Real-time Circular Updates"],
+        impact: "Improved data accuracy and administrative efficiency for the Department of School Education.",
+        techStack: ["React Native", "Firebase", "Cloud Functions"],
+        status: "Live"
+      }
+    },
+    {
+      name: "DYRS Nagaland",
+      category: "Attendance & HR",
+      description: "Attendance tracking system for the Department of Youth Resources & Sports, Nagaland. Real-time circulars, IN/OUT tracking, and event management for officials.",
+      color: "bg-cyan-500 shadow-xl shadow-cyan-500/20",
+      accent: "text-white/90",
+      glow: "shadow-violet-500/20",
+      icon: "🏆",
+      badge: "DYRS Official",
+      tags: ["Sports", "Govt HR", "Attendance"],
+      downloads: "500+",
+      details: {
+        features: ["Biometric/Geo-fenced Attendance", "Internal Circular System", "Event Management Module", "Official Leave Tracking"],
+        impact: "Enhanced accountability and communication within the Department of Youth Resources & Sports.",
+        techStack: ["Flutter", "Node.js", "MongoDB"],
+        status: "Active"
+      }
+    },
+    {
+      name: "Blood Connect",
+      category: "Healthcare",
+      description: "Life-saving blood donor network app connecting blood donors with patients in need across Nagaland.",
+      color: "from-indigo-600 to-blue-700",
+      accent: "text-white",
+      glow: "shadow-indigo-500/40",
+      icon: "🩸",
+      badge: "Life-Saving",
+      tags: ["Healthcare", "Emergency"],
+      downloads: "2K+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-[2.5rem] rounded-tr-none",
+      details: {
+        features: ["Emergency SOS Requests", "Real-time Donor Matching", "Donor Availability Status", "Blood Bank Directory"],
+        impact: "Reduced response time for emergency blood requirements across major districts of Nagaland.",
+        techStack: ["React Native", "Firebase Realtime DB", "Push Notifications"],
+        status: "Community Driven"
+      }
+    },
+    {
+      name: "Pulse",
+      category: "Health",
+      description: "A modern health and wellness tracking platform helping users monitor vital health parameters.",
+      color: "from-fuchsia-600 to-pink-700",
+      accent: "text-white",
+      glow: "shadow-fuchsia-500/40",
+      icon: "💗",
+      badge: "Wellness",
+      tags: ["Fitness", "Health"],
+      downloads: "1K+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-full rounded-bl-3xl",
+      details: {
+        features: ["Vital Signs Logging", "Personalized Wellness Goals", "Daily Fitness Tracker", "Health Insight Reports"],
+        impact: "Empowering individuals to take control of their health through data-driven insights.",
+        techStack: ["React Native", "HealthKit/Google Fit Integration", "Node.js"],
+        status: "Public Beta"
+      }
+    },
+    {
+      name: "Faith Hospital",
+      category: "Medical",
+      description: "Digital patient management and appointment scheduling platform.",
+      color: "from-emerald-500 to-teal-700",
+      accent: "text-white",
+      glow: "shadow-emerald-500/40",
+      icon: "🏥",
+      badge: "Hospital",
+      tags: ["Medical", "Appointments"],
+      downloads: "500+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-3xl rounded-tr-[3rem]",
+      details: {
+        features: ["Online Appointment Booking", "Patient Record Access", "Lab Report Notifications", "Hospital News & Updates"],
+        impact: "Reduced waiting times and improved patient experience at Faith Hospital.",
+        techStack: ["Flutter", "Firebase", "Hospital Management System Integration"],
+        status: "Operational"
+      }
+    },
+    {
+      name: "NEISSR",
+      category: "Research",
+      description: "North East India Social Science Research app connecting researchers.",
+      color: "from-cyan-500 to-blue-600",
+      accent: "text-white",
+      glow: "shadow-cyan-500/40",
+      icon: "🔬",
+      badge: "Research",
+      tags: ["Research", "Academia"],
+      downloads: "300+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-3xl rounded-bl-[3rem]",
+      details: {
+        features: ["Research Paper Repository", "Academic Collaboration Tools", "Event & Seminar Updates", "Institutional Directory"],
+        impact: "Fostering a collaborative research ecosystem for social sciences in Northeast India.",
+        techStack: ["React Native", "Node.js", "AWS S3"],
+        status: "Active"
+      }
+    },
+    {
+      name: "HEART",
+      category: "Education",
+      description: "Platform for the Department of Higher Education, Nagaland.",
+      color: "from-rose-500 to-red-600",
+      accent: "text-white",
+      glow: "shadow-rose-500/40",
+      icon: "🎯",
+      badge: "Higher Ed",
+      tags: ["College", "Govt"],
+      downloads: "500+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-[2rem] rounded-br-none",
+      details: {
+        features: ["College Resource Distribution", "Administrative Circulars", "Student Scholarship Tracking", "Institutional Performance Monitoring"],
+        impact: "Digitized the administrative workflow for the Department of Higher Education.",
+        techStack: ["React Native", "PostgreSQL", "Node.js"],
+        status: "Live"
+      }
+    },
+    {
+      name: "Peace Channel",
+      category: "Community",
+      description: "A community-driven communication platform promoting peace.",
+      color: "from-blue-500 to-indigo-600",
+      accent: "text-white",
+      glow: "shadow-blue-500/40",
+      icon: "☮️",
+      badge: "Civic Tech",
+      tags: ["Community", "Social"],
+      downloads: "200+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-3xl",
+      details: {
+        features: ["Community Dialogue Forums", "Peace Event Management", "Resource Sharing for Peacebuilders", "Civic Engagement Tools"],
+        impact: "Strengthening community bonds and promoting peaceful dialogue through digital connectivity.",
+        techStack: ["React Native", "Firebase", "Socket.io"],
+        status: "Active"
+      }
+    },
+    {
+      name: "Kohima Science",
+      category: "College",
+      description: "Smart digital portal for Kohima Science College.",
+      color: "from-violet-600 to-purple-800",
+      accent: "text-white",
+      glow: "shadow-violet-500/40",
+      icon: "⚗️",
+      badge: "Portal",
+      tags: ["Science", "Campus"],
+      downloads: "300+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-3xl rounded-tl-[3rem]",
+      details: {
+        features: ["Academic Notice Board", "Student Resource Repository", "Faculty Communication Channel", "Exam Schedule & Results"],
+        impact: "Centralized digital communication for one of Nagaland's premier science institutions.",
+        techStack: ["React Native", "Firebase", "Cloud Storage"],
+        status: "Active"
+      }
+    },
+    {
+      name: "StateSync",
+      category: "Government",
+      description: "Centralized data synchronization platform for state departments.",
+      color: "from-slate-800 to-slate-950",
+      accent: "text-white",
+      glow: "shadow-slate-500/40",
+      icon: "🏛️",
+      badge: "Gov. Platform",
+      tags: ["Governance", "Sync"],
+      downloads: "200+",
+      layout: "col-span-1 row-span-1",
+      shape: "rounded-[2.5rem]",
+      details: {
+        features: ["Inter-departmental Data Sync", "Secure Governance API", "Real-time Reporting Dashboard", "Audit Logging"],
+        impact: "Improving governance efficiency through data-driven inter-departmental collaboration.",
+        techStack: ["Node.js", "PostgreSQL", "Redis", "Docker"],
+        status: "Internal Govt Use"
+      }
+    },
+  ];
+
+  const stats = [
+    { value: "15+", label: "Apps Deployed", color: "bg-amber-500 shadow-lg shadow-amber-500/20", accent: "text-white" },
+    { value: "8", label: "Govt. Partners", color: "bg-emerald-500 shadow-lg shadow-emerald-500/20", accent: "text-white" },
+    { value: "20K+", label: "Active Users", color: "bg-rose-500 shadow-lg shadow-rose-500/20", accent: "text-white" },
+    { value: "5", label: "Years Building", color: "bg-violet-500 shadow-lg shadow-violet-500/20", accent: "text-white" },
+  ];
+
+  return (
+    <section id="technologies" className="relative py-24 overflow-hidden bg-[#0A0F1E] rounded-[4rem] mx-4 md:mx-8 my-12 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] border border-white/5">
+      {/* Premium Background Elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-violet-600/10 blur-[120px] rounded-full" />
+      </div>
+
+      {/* Subtle Grid Background */}
+      <div className="absolute inset-0 opacity-[0.05] pointer-events-none"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center mb-24"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/10 bg-white/5 text-blue-400 text-[10px] font-black uppercase tracking-[0.3em] mb-8 backdrop-blur-md">
+            <Smartphone className="w-3 h-3" />
+            Digital Innovation Lab
+          </div>
+          <h2 className="text-6xl md:text-9xl font-anton uppercase tracking-tighter mb-8 text-white drop-shadow-2xl">
+            NITI Technologies
+          </h2>
+          <p className="text-slate-400 max-w-3xl mx-auto text-lg md:text-xl leading-relaxed font-medium">
+            Building the digital infrastructure of Northeast India — one powerful app at a time. From government platforms to civic tech, we code for impact.
+          </p>
+        </motion.div>
+
+        {/* Stats Row */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mb-24"
+        >
+          {stats.map((s, i) => (
+            <div key={i} className={cn(
+              "relative group rounded-3xl p-6 md:p-10 text-center overflow-hidden transition-all duration-500",
+              "bg-white/5 border border-white/10 backdrop-blur-xl hover:bg-white/10 hover:border-white/20 hover:-translate-y-2",
+              "shadow-[0_20px_50px_-15px_rgba(0,0,0,0.3)]"
+            )}>
+              <div className={cn("absolute top-0 left-1/2 -translate-x-1/2 w-24 h-1 blur-xl opacity-50", s.color)} />
+              <p className={cn("text-4xl md:text-7xl font-anton mb-2 tracking-tighter drop-shadow-2xl", s.accent)}>{s.value}</p>
+              <p className="text-[9px] md:text-[11px] text-white/40 uppercase tracking-[0.4em] font-black">{s.label}</p>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* Apps Grid — Compact Glossy Bento Layout */}
+        <div 
+          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4 px-1 md:px-0"
+          style={{ 
+            perspective: '2000px',
+          }}
+        >
+          {apps.map((app, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30, rotateX: -5 }}
+              whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, delay: i * 0.08, ease: [0.23, 1, 0.32, 1] }}
+              onClick={() => onSelectApp(app)}
+              className={cn(
+                "group relative overflow-hidden transition-all duration-700 cursor-pointer",
+                "bg-gradient-to-br border border-white/30",
+                app.layout,
+                app.shape,
+                app.color,
+                app.glow,
+                "hover:scale-[1.03] hover:shadow-2xl active:scale-[0.98]",
+                "shadow-[inset_0_0_20px_rgba(255,255,255,0.15)]"
+              )}
+            >
+              {/* Premium Glossy Reflection Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/10 via-white/5 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-black/20" />
+              
+              {/* High-End Moving Shine */}
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-40 transition-opacity duration-700 pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000 ease-in-out skew-x-12" />
+              </div>
+
+              {/* Top Glass Highlight */}
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+              <div className="absolute top-0 left-0 w-[1px] h-full bg-gradient-to-b from-white/40 via-transparent to-transparent" />
+
+              <div className="relative p-5 md:p-6 z-10 h-full flex flex-col justify-between gap-3">
+                <div>
+                  {/* Top Row */}
+                  <div className="flex items-start justify-between mb-3 gap-2">
+                    <motion.div 
+                      whileHover={{ scale: 1.1, rotate: 5 }}
+                      className="w-9 h-9 md:w-12 md:h-12 rounded-xl bg-white/20 backdrop-blur-2xl border border-white/40 flex items-center justify-center text-lg md:text-2xl shadow-xl flex-shrink-0"
+                    >
+                      {app.icon}
+                    </motion.div>
+                    <span className={cn(
+                      "text-[8px] md:text-[10px] font-black uppercase tracking-[0.1em] px-2 py-1 rounded-lg bg-black/40 backdrop-blur-3xl border border-white/30 shadow-sm text-right leading-tight",
+                      "text-white"
+                    )}>
+                      {app.badge}
+                    </span>
+                  </div>
+
+                  {/* Content */}
+                  <p className="text-[8px] md:text-[10px] text-white/50 uppercase tracking-[0.2em] font-black mb-1">{app.category}</p>
+                  <h3 className="text-white font-anton text-[15px] md:text-xl mb-1.5 leading-[1.15] tracking-tight drop-shadow-2xl break-words hyphens-auto">{app.name}</h3>
+                  <p className="text-white/70 text-[9px] md:text-xs leading-relaxed font-medium line-clamp-2 group-hover:text-white transition-colors duration-300">
+                    {app.description}
+                  </p>
+                </div>
+
+                {/* Footer */}
+                <div className="mt-2 flex items-end justify-between">
+                  <div className="flex flex-wrap gap-1">
+                    {app.tags.slice(0, 2).map((tag, j) => (
+                      <span key={j} className="text-[8px] md:text-[9px] px-2 py-0.5 rounded-md bg-white/10 border border-white/10 text-white/80 font-bold backdrop-blur-sm">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="text-right">
+                    <p className="text-[7px] text-white/30 uppercase font-black tracking-widest mb-0.5">DLs</p>
+                    <span className="text-white text-xs md:text-sm font-anton tracking-tighter">{app.downloads}</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Glass Edge Highlight */}
+              <div className="absolute inset-0 border border-white/10 pointer-events-none rounded-[inherit]" />
+            </motion.div>
+          ))}
+        </div>
+
+        {/* CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="mt-16 text-center"
+        >
+          <a
+            href="https://nititechnologies.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-2xl bg-blue-600 text-white text-base font-bold hover:bg-blue-700 transition-all shadow-2xl shadow-blue-900/20 hover:-translate-y-1 group"
+          >
+            Visit NITI Technologies <ExternalLink className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+          </a>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
+// ─── NITI Incubation Centre Section ─────────────────────────────────────────
+const NitiIncubationSection = () => {
+
+  // AI-integrated sectors specific to Nagaland's economy & opportunities
+  const sectors = [
+    {
+      emoji: "🧵",
+      title: "Handloom & Handicrafts",
+      headline: "AI-Powered Artisan Commerce",
+      desc: "Nagaland's GI-tagged textiles and tribal handicrafts are world-class. We incubate startups building AI-driven e-commerce platforms, pattern recognition for quality control, and digital marketplaces connecting Naga artisans to global buyers.",
+      tags: ["Computer Vision", "E-Commerce", "GI Products"],
+      color: "from-orange-400 to-amber-600",
+      bg: "bg-[#0A0F1E]/60 backdrop-blur-md",
+      border: "border-orange-500/30",
+    },
+    {
+      emoji: "🌾",
+      title: "Agriculture & Food Processing",
+      headline: "Smart Farming for Northeast India",
+      desc: "With GI-certified products like Naga tree tomato and Naga cucumber, the opportunity is enormous. We support startups using AI for pest detection, crop monitoring, smart irrigation, and agri-supply chain digitization.",
+      tags: ["Precision Farming", "IoT Sensors", "Supply Chain"],
+      color: "from-emerald-500 to-green-700",
+      bg: "bg-[#0A0F1E]/60 backdrop-blur-md",
+      border: "border-emerald-500/30",
+    },
+    {
+      emoji: "🏥",
+      title: "Healthcare & Telemedicine",
+      headline: "Bridging Rural Health Gaps with AI",
+      desc: "Nagaland's remote terrain makes healthcare access a challenge. We incubate startups building AI-assisted diagnosis tools, telemedicine platforms, community health monitoring apps, and medical supply logistics systems.",
+      tags: ["Telehealth", "AI Diagnosis", "Health Logistics"],
+      color: "from-rose-500 to-red-700",
+      bg: "bg-[#0A0F1E]/60 backdrop-blur-md",
+      border: "border-rose-500/30",
+    },
+    {
+      emoji: "🦜",
+      title: "Tourism & Cultural Tech",
+      headline: "Digitalizing Nagaland's Heritage",
+      desc: "Home to the iconic Hornbill Festival, Nagaland's tourism sector is rapidly growing. We back startups building AI-driven travel platforms, AR/VR cultural experiences, smart tour guides, and homestay management systems.",
+      tags: ["AR/VR", "Travel Tech", "Cultural Preservation"],
+      color: "from-violet-500 to-purple-700",
+      bg: "bg-[#0A0F1E]/60 backdrop-blur-md",
+      border: "border-violet-500/30",
+    },
+    {
+      emoji: "🏛️",
+      title: "GovTech & Civic Solutions",
+      headline: "AI for Better Governance",
+      desc: "Building on NITI Technologies' track record of official government apps, we incubate startups creating AI-powered public service delivery tools, data platforms for state departments, and civic engagement solutions for Northeast India.",
+      tags: ["Public Services", "Data Analytics", "e-Governance"],
+      color: "from-blue-500 to-indigo-700",
+      bg: "bg-[#0A0F1E]/60 backdrop-blur-md",
+      border: "border-blue-500/30",
+    },
+    {
+      emoji: "📚",
+      title: "EdTech & Skill Development",
+      headline: "AI-Personalized Learning for Nagaland",
+      desc: "Aligned with national skilling missions and Nagaland's youth-heavy demographics, we incubate startups building adaptive learning platforms, AI tutors for regional languages, and vocational training tools for the gig economy.",
+      tags: ["Adaptive Learning", "Vernacular AI", "Vocational Skills"],
+      color: "from-cyan-500 to-teal-700",
+      bg: "bg-[#0A0F1E]/60 backdrop-blur-md",
+      border: "border-cyan-500/30",
+    },
+  ];
+
+  const support = [
+    {
+      icon: <Code className="w-5 h-5" />,
+      title: "Tech Co-Building",
+      desc: "NITI Technologies' in-house dev team helps you build your MVP — from app development to AI model integration — so you focus on the problem, not the code.",
+      accent: "text-white",
+      color: "bg-gradient-to-br from-blue-500 to-blue-700 shadow-lg shadow-blue-500/30",
+    },
+    {
+      icon: <Users className="w-5 h-5" />,
+      title: "Mentor Network",
+      desc: "Connect with experienced mentors from the Nagaland startup ecosystem, NIELIT, Nagaland Innovation Society, and industry professionals from Northeast India.",
+      accent: "text-slate-900",
+      color: "bg-gradient-to-br from-yellow-300 to-yellow-500 shadow-lg shadow-yellow-500/30",
+    },
+    {
+      icon: <Shield className="w-5 h-5" />,
+      title: "Startup India Registration",
+      desc: "Get recognized under the Startup Nagaland policy — access seed grants, GST reimbursements, broadband subsidies, and patent filing cost support from the Govt. of Nagaland.",
+      accent: "text-white",
+      color: "bg-gradient-to-br from-pink-500 to-pink-700 shadow-lg shadow-pink-500/30",
+    },
+    {
+      icon: <TrendingUp className="w-5 h-5" />,
+      title: "Investor Access",
+      desc: "Get introduced to the Nagaland Investor Network, angel investors, and government-backed funding bodies supporting startups in Northeast India.",
+      accent: "text-white",
+      color: "bg-gradient-to-br from-red-500 to-red-700 shadow-lg shadow-red-500/30",
+    },
+    {
+      icon: <Globe className="w-5 h-5" />,
+      title: "Market Connections",
+      desc: "Leverage NITI's existing relationships with 8+ government departments and institutions to pilot and validate your product in a real-world setting.",
+      accent: "text-white",
+      color: "bg-gradient-to-br from-indigo-500 to-indigo-700 shadow-lg shadow-indigo-500/30",
+    },
+    {
+      icon: <Zap className="w-5 h-5" />,
+      title: "AI Integration Support",
+      desc: "Our team helps you identify where AI adds real value in your business — whether it's a simple recommendation engine or a computer vision pipeline — and builds it with you.",
+      accent: "text-slate-900",
+      color: "bg-gradient-to-br from-amber-300 to-amber-500 shadow-lg shadow-amber-500/30",
+    },
+  ];
+
+  const [activeIdx, setActiveIdx] = useState(0);
+
+  return (
+    <section id="incubation" className="relative py-24 overflow-hidden bg-white rounded-[3rem] mx-4 md:mx-8 my-12 shadow-2xl border border-slate-100">
+
+      {/* Subtle dot-grid background */}
+      <div className="absolute inset-0 opacity-[0.4]"
+        style={{
+          backgroundImage: `radial-gradient(circle, #cbd5e1 1px, transparent 1px)`,
+          backgroundSize: '32px 32px'
+        }}
+      />
+
+      <div className="relative max-w-7xl mx-auto px-6 md:px-12">
+
+        {/* ── Header ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="max-w-4xl mb-20"
+        >
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-200 bg-violet-50 text-violet-600 text-xs font-bold uppercase tracking-widest mb-6 whitespace-nowrap">
+            <Lightbulb className="w-3 h-3 text-violet-500" /> AI-Integrated Startup Incubator
+          </div>
+          <h2 className="text-3xl md:text-4xl font-anton uppercase tracking-wider leading-tight mb-4 text-slate-900 whitespace-nowrap">
+            NITI Incubation Centre
+          </h2>
+          <p className="text-slate-600 text-base leading-relaxed">
+            We incubate startups building businesses in Nagaland's core sectors — <strong>with AI as a smart component</strong>, not the whole product. If you're solving a real problem in agriculture, healthcare, handloom, tourism, or governance and want to use AI to do it better, this is your home.
+          </p>
+        </motion.div>
+
+        {/* ── What "AI-integrated" means — explainer strip ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mb-20 bg-slate-50 rounded-3xl p-8 md:p-10 grid md:grid-cols-3 gap-6 border border-slate-100"
+        >
+          <div className="md:col-span-1 flex flex-col items-center text-center justify-center">
+            <p className="text-violet-600 text-xs font-bold uppercase tracking-widest mb-3">Our Philosophy</p>
+            <h3 className="text-slate-900 text-2xl font-bold leading-snug">You don't need to be an AI company. You need AI <em>in</em> your company.</h3>
+          </div>
+          <div className="md:col-span-2 grid sm:grid-cols-2 gap-4">
+            {[
+              { label: "Not just a chatbot", desc: "We focus on AI that solves a real local problem — crop disease detection, quality sorting, tourist recommendations, health triaging." },
+              { label: "Real sector, real impact", desc: "Your business must be rooted in a Nagaland sector. AI is the tool, not the product. E.g. a handloom export startup that uses AI for demand forecasting." },
+              { label: "Built alongside NITI Tech", desc: "You don't need a tech team on day one. NITI Technologies co-builds your MVP, integrates AI models, and trains your team." },
+              { label: "Aligned with Govt. vision", desc: "Our focus sectors mirror the AI skilling priorities identified by NITI Aayog for Nagaland: handloom, agriculture, healthcare, tourism, and EV/clean tech." },
+            ].map((item, i) => (
+              <div key={i} className="bg-white rounded-3xl p-4 border border-slate-200 shadow-sm text-center flex flex-col items-center justify-center">
+                <p className="text-violet-600 text-xs font-bold mb-1">✦ {item.label}</p>
+                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* ── Focus Sectors — Interactive Cards ── */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-2 tracking-wider">Focus Sectors</h3>
+            <p className="text-slate-500">Click a sector to learn what kinds of startups we're looking for.</p>
+          </motion.div>
+
+          {/* Sector Tabs */}
+          <div className="flex flex-wrap gap-2 mb-8">
+            {sectors.map((s, i) => (
+              <motion.button
+                key={i}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setActiveIdx(i)}
+                className={`px-4 py-2 rounded-2xl text-xs md:text-sm font-semibold transition-all duration-300 border ${
+                  activeIdx === i
+                    ? 'bg-violet-600 text-white border-violet-600 shadow-lg shadow-violet-600/20'
+                    : 'bg-slate-100 text-slate-600 border-slate-200 hover:border-slate-300 hover:bg-slate-200'
+                }`}
+              >
+                {s.emoji} {s.title}
+              </motion.button>
+            ))}
+          </div>
+
+          {/* Active Sector Detail */}
+          <div style={{ perspective: '1200px' }}>
+            <AnimatePresence mode="wait">
+            <motion.div
+              key={activeIdx}
+              initial={{ opacity: 0, y: 16, rotateX: 0 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              whileHover={{ 
+                y: -10,
+                rotateX: 2,
+                rotateY: -2,
+                transition: { duration: 0.3 }
+              }}
+              transition={{ duration: 0.35 }}
+              className={cn(
+                "rounded-3xl border p-6 md:p-10 relative overflow-hidden bg-white shadow-2xl border-slate-100 card-3d shine-effect transition-all duration-500 hover:shadow-violet-500/20 cursor-default",
+                sectors[activeIdx].border
+              )}
+              style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+            >
+              <div className="texture-overlay opacity-[0.03]" />
+              <div className="flex flex-col md:flex-row md:items-start gap-6 md:gap-8 relative z-10">
+                <motion.div 
+                  whileHover={{ scale: 1.2, rotate: 5, z: 50 }}
+                  className="flex-shrink-0 text-5xl md:text-6xl drop-shadow-2xl cursor-default select-none"
+                >
+                  {sectors[activeIdx].emoji}
+                </motion.div>
+                <div className="flex-1" style={{ transform: 'translateZ(30px)' }}>
+                  <p className={`text-[10px] md:text-xs font-bold uppercase tracking-widest mb-1 bg-gradient-to-r ${sectors[activeIdx].color} bg-clip-text`}
+                    style={{ WebkitTextFillColor: 'transparent' }}>
+                    {sectors[activeIdx].title}
+                  </p>
+                  <h4 className="text-xl md:text-3xl font-bold text-slate-900 mb-3 md:mb-4">{sectors[activeIdx].headline}</h4>
+                  <p className="text-slate-600 text-sm md:text-base leading-relaxed mb-6 max-w-2xl font-light">{sectors[activeIdx].desc}</p>
+                  <div className="flex flex-wrap gap-2" style={{ transform: 'translateZ(50px)' }}>
+                    {sectors[activeIdx].tags.map((t, j) => (
+                      <motion.span 
+                        key={j} 
+                        whileHover={{ scale: 1.1, y: -2 }}
+                        className={`px-2.5 md:px-3 py-1 rounded-full text-[9px] md:text-xs font-bold text-white bg-gradient-to-r ${sectors[activeIdx].color} shadow-lg shadow-black/10 cursor-default`}
+                      >
+                        {t}
+                      </motion.span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </AnimatePresence>
+          </div>
+        </div>
+
+        {/* ── What We Provide ── */}
+        <div className="mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-10"
+          >
+            <h3 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-2 tracking-wider">What We Provide</h3>
+            <p className="text-slate-500 max-w-lg">End-to-end support from idea to launch and beyond.</p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
+            {support.map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                whileHover={{ 
+                  y: -10,
+                  rotateX: 2,
+                  rotateY: -2,
+                  transition: { duration: 0.3 }
+                }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: i * 0.07 }}
+                className={cn(
+                  "group relative rounded-3xl p-4 md:p-6 transition-all duration-500 card-3d shine-effect bevel-shadow animated-border overflow-hidden cursor-default",
+                  item.color
+                )}
+                style={{ transformStyle: 'preserve-3d', perspective: '1000px' }}
+              >
+                <div className="texture-overlay" />
+                <div className="relative z-10" style={{ transform: 'translateZ(30px)' }}>
+                  <div className={cn(
+                    "w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-white/20 border border-white/30 flex items-center justify-center mb-3 md:mb-4 shadow-inner",
+                    item.accent === "text-white" ? "text-white" : "text-slate-900"
+                  )} style={{ transform: 'translateZ(20px)' }}>
+                    {item.icon}
+                  </div>
+                  <h4 className={cn("font-bold text-sm md:text-lg mb-1 md:mb-2 leading-tight drop-shadow-md", item.accent)} style={{ transform: 'translateZ(40px)' }}>{item.title}</h4>
+                  <p className={cn(
+                    "text-[10px] md:text-sm leading-relaxed font-medium line-clamp-3 md:line-clamp-none",
+                    item.accent === "text-white" ? "text-white/90" : "text-slate-800"
+                  )} style={{ transform: 'translateZ(20px)' }}>{item.desc}</p>
+                </div>
+                
+                {/* Bottom accent line */}
+                <div className={cn(
+                  "absolute bottom-0 left-0 h-0.5 md:h-1 w-full opacity-40 bg-gradient-to-r from-transparent to-transparent",
+                  item.accent === "text-white" ? "via-white" : "via-slate-900"
+                )} />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* ── Eligibility & How to Apply ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="grid md:grid-cols-2 gap-6 mb-10"
+          style={{ perspective: '1200px' }}
+        >
+          <motion.div 
+            whileHover={{ y: -5, rotateX: 1, rotateY: -1 }}
+            className="bg-slate-50 rounded-3xl p-8 border border-slate-100 shadow-sm transition-all duration-300 hover:shadow-xl hover:border-slate-200 cursor-default"
+            style={{ transformStyle: 'preserve-3d' }}
+          >
+            <h4 className="text-xl font-bold text-slate-900 mb-4 flex items-center gap-2" style={{ transform: 'translateZ(20px)' }}>
+              <CheckCircle2 className="w-5 h-5 text-violet-600" /> Who Should Apply
+            </h4>
+            <ul className="space-y-3" style={{ transform: 'translateZ(10px)' }}>
+              {[
+                "Entrepreneurs with a startup idea in any Nagaland sector (agriculture, healthcare, tourism, handloom, education, GovTech)",
+                "Founders who want to use AI/ML as a tool — not necessarily an AI-first company",
+                "Students, recent graduates, or working professionals from Nagaland and Northeast India",
+                "Small businesses looking to digitize and add an intelligent layer to their operations",
+                "Teams of 1–4 co-founders at idea or early MVP stage",
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-3 text-sm text-slate-600">
+                  <span className="text-violet-600 mt-0.5 flex-shrink-0">✦</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ y: -5, rotateX: 1, rotateY: 1 }}
+            className="bg-slate-900 rounded-3xl p-8 relative overflow-hidden shadow-xl transition-all duration-300 hover:shadow-2xl cursor-default"
+            style={{ transformStyle: 'preserve-3d' }}
+          >
+            <div className="absolute top-0 right-0 w-48 h-48 bg-violet-500/10 rounded-full -translate-y-12 translate-x-12 pointer-events-none" />
+            <h4 className="text-xl font-bold text-white mb-4 flex items-center gap-2 relative z-10" style={{ transform: 'translateZ(20px)' }}>
+              <Rocket className="w-5 h-5 text-violet-400" /> How to Get Started
+            </h4>
+            <ol className="space-y-4 relative z-10" style={{ transform: 'translateZ(10px)' }}>
+              {[
+                { step: "01", text: "Reach out to NITI via phone or walk into our centre at Kohima/Dimapur" },
+                { step: "02", text: "Present your idea — what problem you're solving, who benefits, and how AI fits in" },
+                { step: "03", text: "NITI's team evaluates fit with Nagaland's sector needs and your readiness" },
+                { step: "04", text: "Selected startups begin co-building with NITI Technologies and receive mentorship access" },
+              ].map((item, i) => (
+                <li key={i} className="flex items-start gap-4">
+                  <span className="text-violet-400 font-bold font-anton text-lg flex-shrink-0">{item.step}</span>
+                  <p className="text-slate-300 text-sm leading-relaxed">{item.text}</p>
+                </li>
+              ))}
+            </ol>
+          </motion.div>
+        </motion.div>
+
+        {/* ── CTA ── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="rounded-3xl relative overflow-hidden"
+          style={{ background: 'linear-gradient(135deg, #ecfdf5 0%, #eff6ff 50%, #f5f3ff 100%)' }}
+        >
+          <div className="px-8 py-12 md:py-14 text-left md:text-center">
+            <p className="text-emerald-600 text-xs font-bold uppercase tracking-widest mb-3">Now Accepting Applications</p>
+            <h3 className="text-3xl md:text-4xl font-bold font-display text-slate-900 mb-4 tracking-wider">
+              Ready to build something meaningful for Nagaland?
+            </h3>
+            <p className="text-slate-500 max-w-xl md:mx-auto mb-8 leading-relaxed">
+              You bring the idea and the drive. NITI brings the technology, the network, and 26+ years of roots in Nagaland. Let's build together.
+            </p>
+            <div className="flex flex-wrap gap-4 justify-start md:justify-center">
+              <a href="#contact" className="px-8 py-3.5 rounded-xl bg-slate-900 text-white font-bold hover:bg-slate-700 transition-all shadow-lg hover:-translate-y-0.5">
+                Apply for Incubation
+              </a>
+              <a href="tel:+919811862846" className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl border border-slate-300 text-slate-700 font-bold hover:bg-white transition-colors">
+                <Phone className="w-4 h-4" /> +91 98118 62846
+              </a>
+            </div>
+          </div>
+        </motion.div>
+
+      </div>
+    </section>
+  );
+};
+
+const NitiAppSubpage = ({ app, onBack }: { app: any, onBack: () => void }) => {
+  return (
+    <motion.div
+      initial={{ opacity: 0, scale: 0.95 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.95 }}
+      className="min-h-screen bg-[#0A0F1E] pt-28 pb-20 px-6 relative overflow-hidden"
+    >
+      {/* Background Glows */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+        <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
+        <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-violet-600/10 blur-[120px] rounded-full" />
+      </div>
+
+      <div className="max-w-4xl mx-auto relative z-10">
+        <button
+          onClick={onBack}
+          className="flex items-center gap-2 text-white/80 hover:text-white bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 transition-all mb-12 font-bold text-xs uppercase tracking-widest px-4 py-2.5 rounded-xl backdrop-blur-sm"
+        >
+          <ArrowLeft className="w-4 h-4" /> Back to Technologies
+        </button>
+
+        <div className="grid md:grid-cols-3 gap-12">
+          <div className="md:col-span-1">
+            <div className={cn(
+              "w-32 h-32 rounded-[2rem] flex items-center justify-center text-5xl shadow-2xl mb-8 relative overflow-hidden bg-gradient-to-br border border-white/30",
+              app.color
+            )}>
+              {/* Glossy Overlay */}
+              <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-white/5 to-transparent opacity-60" />
+              <div className="absolute top-0 left-0 w-full h-[1px] bg-white/40" />
+              <div className="relative z-10">{app.icon}</div>
+            </div>
+            <div className="space-y-6">
+              <div>
+                <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em] mb-1">Category</p>
+                <p className="text-white font-bold">{app.category}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em] mb-1">Status</p>
+                <p className="text-white font-bold">{app.details.status}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-black text-white/30 uppercase tracking-[0.2em] mb-1">Downloads</p>
+                <p className="text-white font-bold">{app.downloads}</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="md:col-span-2">
+            <h1 className="text-4xl md:text-7xl font-anton uppercase tracking-tight mb-6 text-white drop-shadow-2xl">{app.name}</h1>
+            <p className="text-xl text-slate-400 leading-relaxed mb-10 font-medium">{app.description}</p>
+            
+            <div className="space-y-10">
+              <div>
+                <h3 className="text-xs font-black text-white/40 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                  Key Features
+                </h3>
+                <div className="grid sm:grid-cols-2 gap-3">
+                  {app.details.features.map((feature: string, i: number) => (
+                    <div key={i} className="flex items-center gap-3 bg-white/5 backdrop-blur-md p-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                      <CheckCircle2 className="w-4 h-4 text-emerald-400 flex-shrink-0" />
+                      <span className="text-sm font-bold text-slate-300">{feature}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-xs font-black text-white/40 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                  Impact & Reach
+                </h3>
+                <p className="text-slate-400 leading-relaxed bg-white/5 backdrop-blur-md p-6 rounded-2xl border border-white/10 italic font-medium">
+                  "{app.details.impact}"
+                </p>
+              </div>
+
+              <div>
+                <h3 className="text-xs font-black text-white/40 uppercase tracking-[0.3em] mb-6 flex items-center gap-2">
+                  <div className="w-1.5 h-1.5 rounded-full bg-blue-500 shadow-[0_0_10px_rgba(59,130,246,0.5)]" />
+                  Technology Stack
+                </h3>
+                <div className="flex flex-wrap gap-2">
+                  {app.details.techStack.map((tech: string, i: number) => (
+                    <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-[10px] font-black text-white/60 uppercase tracking-widest backdrop-blur-md">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
+};
+
 export default function App() {
   const [view, setView] = useState<'home' | 'computer' | 'academy' | 'batch'>('home');
   const [selectedCourse, setSelectedCourse] = useState<any>(null);
   const [selectedReason, setSelectedReason] = useState<any>(null);
+  const [selectedApp, setSelectedApp] = useState<any>(null);
   const [scrollTarget, setScrollTarget] = useState<string | null>(null);
 
   // Scroll to top when opening a subpage
   useEffect(() => {
-    if (selectedCourse || selectedReason || view !== 'home') {
+    if (selectedCourse || selectedReason || selectedApp || view !== 'home') {
       window.scrollTo(0, 0);
     }
-  }, [view, selectedCourse, selectedReason]);
+  }, [view, selectedCourse, selectedReason, selectedApp]);
 
   // After returning home, scroll to the saved section
   useEffect(() => {
-    if (scrollTarget && view === 'home' && !selectedCourse && !selectedReason) {
+    if (scrollTarget && view === 'home' && !selectedCourse && !selectedReason && !selectedApp) {
       const el = document.getElementById(scrollTarget);
       if (el) {
         setTimeout(() => {
@@ -1992,12 +2913,13 @@ export default function App() {
       }
       setScrollTarget(null);
     }
-  }, [scrollTarget, view, selectedCourse, selectedReason]);
+  }, [scrollTarget, view, selectedCourse, selectedReason, selectedApp]);
 
   const goBack = (section: string) => {
     setScrollTarget(section);
     setSelectedCourse(null);
     setSelectedReason(null);
+    setSelectedApp(null);
     setView('home');
   };
 
@@ -2017,6 +2939,12 @@ export default function App() {
             course={selectedCourse} 
             onBack={() => goBack('computer')} 
           />
+        ) : selectedApp ? (
+          <NitiAppSubpage
+            key="app-detail"
+            app={selectedApp}
+            onBack={() => goBack('technologies')}
+          />
         ) : (
           <>
             {view === 'home' && (
@@ -2029,6 +2957,8 @@ export default function App() {
                 <Hero onViewChange={setView} />
                 <ComputerSection onSelectCourse={setSelectedCourse} />
                 <AcademySection onViewBatchSchedule={() => setView('batch')} />
+                <NitiTechnologiesSection onSelectApp={setSelectedApp} />
+                <NitiIncubationSection />
                 <ScrollGallery />
                 <WhyChooseUs onSelectReason={setSelectedReason} />
                 <TestimonialsSection />

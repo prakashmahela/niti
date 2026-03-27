@@ -111,8 +111,8 @@ export function Pricing({
         </p>
       </div>
 
-      <div className="flex justify-center items-center gap-3 md:gap-4 mb-10">
-        <span className={cn("text-xs md:text-sm font-bold transition-colors whitespace-nowrap", isMonthly ? "text-black" : "text-slate-400")}>
+      <div className="flex justify-center items-center gap-4 md:gap-8 mb-12">
+        <span className={cn("text-sm md:text-lg font-bold transition-colors whitespace-nowrap tracking-tight", isMonthly ? "text-black" : "text-slate-400")}>
           Course Fee
         </span>
         <Label className="relative inline-flex items-center cursor-pointer">
@@ -120,10 +120,10 @@ export function Pricing({
             ref={switchRef as any}
             checked={!isMonthly}
             onCheckedChange={handleToggle}
-            className="relative scale-90 md:scale-100"
+            className="relative scale-110 md:scale-150"
           />
         </Label>
-        <span className={cn("text-xs md:text-sm font-bold transition-colors whitespace-nowrap", !isMonthly ? "text-black" : "text-slate-400")}>
+        <span className={cn("text-sm md:text-lg font-bold transition-colors whitespace-nowrap tracking-tight", !isMonthly ? "text-black" : "text-slate-400")}>
           One-time Payment <span className="text-emerald-600 font-bold">(Save 10%)</span>
         </span>
       </div>
