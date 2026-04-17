@@ -2517,10 +2517,10 @@ const NitiIncubationSection = () => {
           transition={{ duration: 0.7 }}
           className="max-w-4xl mb-20"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-200 bg-violet-50 text-violet-600 text-xs font-bold uppercase tracking-widest mb-6 whitespace-nowrap">
-            <Lightbulb className="w-3 h-3 text-violet-500" /> AI-Integrated Startup Incubator
+          <div className="inline-flex items-center gap-1.5 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-violet-200 bg-violet-50 text-violet-600 text-[11px] md:text-xs font-bold uppercase tracking-wide mb-6">
+            <Lightbulb className="w-3 h-3 text-violet-500 flex-shrink-0" /> AI-Integrated Startup Incubator
           </div>
-          <h2 className="text-3xl md:text-4xl font-anton uppercase tracking-wider leading-tight mb-4 text-slate-900 whitespace-nowrap">
+          <h2 className="text-2xl md:text-4xl font-anton uppercase tracking-wider leading-tight mb-4 text-slate-900">
             NITI Incubation Centre
           </h2>
           <p className="text-slate-600 text-base leading-relaxed">
